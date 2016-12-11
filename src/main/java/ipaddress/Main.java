@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
 public class Main {
     public static void main(String[] args) throws IOException {
 
-        List<String> inputIP = new ArrayList<>();
+/*        List<String> inputIP = new ArrayList<>();
         try (BufferedReader consoleReader = new BufferedReader(new InputStreamReader(System.in))) {
             while (inputIP.size() != 2) {
                 String ip = consoleReader.readLine();
@@ -20,9 +20,12 @@ public class Main {
                 }
             }
         }
+        List<String> ipAddresses = insideIpAddresses(inputIP.get(0), inputIP.get(1));*/
 
-        List<String> ipAddresses = insideIpAddresses(inputIP.get(0), inputIP.get(1));
-        ipAddresses.forEach(System.out::println);
+        if(args.length==2 && validate(args[0]) && validate(args[1])) {
+            List<String> ipAddresses = insideIpAddresses(args[0], args[1]);
+            ipAddresses.forEach(System.out::println);
+        }
     }
 
     public static List<String> insideIpAddresses(String startIp, String endIp) {
